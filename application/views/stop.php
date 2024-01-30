@@ -49,7 +49,7 @@
 
 <body>
 <center><h1>SELAMAT KEPADA </h1></center>
-<table align="center" id="example" border="2" class="table table-hover table-bordered display responsive nowrap" style="width:50%" >
+<table align="center" id="example" border="2" class="table table-hover table-bordered display responsive nowrap" style="width:50%" action="<?php echo site_url().'Input/input_hadiah' ?>" method="post"  >
             <thead>
                 <tr>            
                    
@@ -72,6 +72,7 @@
                               <div class="col-sm-8">
                                   <input name="nama" type="text" id="nama" class="form-control" placeholder="Masukkan Keterangan Hadiah" required />
                               </div>
+                            
              </td>
             </tr>
             </tbody>
@@ -81,7 +82,7 @@
 
 
  <center><div><a a href="<?php echo site_url().'Input/showdata' ?>" class="btn btn-sm btn-primary"style="font-size: 20px;">Undi </a>  &nbsp&nbsp
-               <a href="<?php echo site_url().'Input/stop' ?>" class="btn btn-sm btn-success" style="font-size: 20px;">Simpan </a>
+               <!-- <a href="<?php echo site_url().'Input/input_hadiah' ?>" class="btn btn-sm btn-success" style="font-size: 20px;">Simpan </a> -->
                </div>
 </body>
 </html>

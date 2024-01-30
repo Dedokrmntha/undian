@@ -64,21 +64,32 @@ class Input extends CI_Controller {
     }
 
 	public function input_hadiah() {
-        $other_data = $other_db->get('other_table')->row(); // Replace 'other_table' with the table name from the other database
-
-    // Combine data from both databases
-    $data = array(
-        'id' => $id,
-        'nomor' => $nomor,
-        'nama' => $nama,
-        'other_field' => $other_data->field_name, // Replace 'field_name' with the actual field name from the other database
-    );
-
-    // Save data to the default database
-    $this->db->insert('default_table', $data); // Replace 'default_table' with the table name in the default database
-
-    $this->session->set_flashdata('sukses', 'Anda berhasil menginput data');
-    redirect('admin/index');
-    }
+		$id = $this->input->post('id');
+		$nomor = $this->input->post('nomor');
+		$nama = $this->input->post('nama');
+	
+	
+		// Mengambil data dari tabel di database lain
+		$other_data = $other_db->get('db_user')->row();
+	
+		// Menambahkan keterangan pada data
+		$keterangan = 'Data ini berasal dari tabel lain.';
+	
+		// Menggabungkan data dari kedua database beserta keterangan
+		$data = array(
+			'id' => $id,
+			'nomor' => $nomor,
+			'nama' => $nama,
+			'keterangan' => $keterangan,
+			
+		);
+	
+		// Menyimpan data ke tabel di database default
+		$this->db->insert('db_hasil', $data);
+	
+		$this->session->set_flashdata('sukses', 'Anda berhasil menginput data');
+		redirect('admin/index');
+	}
+	
 	
 }

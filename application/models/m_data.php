@@ -35,13 +35,4 @@ class M_data extends CI_Model {
       $hasil = $this->db->query("UPDATE db_user SET nama='$nama', nomor='$nomor' WHERE id='$id'");
       return $hasil;
   }
-  function hadiah($id) {
-      $hasil = $this->db->query("SELECT * from db_hasil where id='$id'");
-      return $hasil;
-  }
-
-  function hadiah2($id, $nomor, $nama, $keterangan) {
-    $hasil = $this->db->query("UPDATE db_hasil SET nama='$nama', nomor='$nomor', keterangan='$keterangan' WHERE id='$id'");
-    return $hasil;
-}
 }
