@@ -12,7 +12,7 @@ if (empty($_SESSION['username'])){
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Virtual Reality 360</title>
+    <title>Undian</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Hakko Bio Richard">
     <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">

@@ -4,11 +4,6 @@ if (empty($_SESSION['username'])){
 } else {
   
 ?>
-
-
-
-
-
 <html>
 <head>
     <meta charset="UTF-8">
