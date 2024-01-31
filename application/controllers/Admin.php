@@ -29,6 +29,12 @@ class Admin extends CI_Controller {
                     $x['data']=$this->m_vr->datavr();
                     $this->load->view('admin/index',$x);
   }
+  function pemenang()
+  {
+   
+                    $x['data']=$this->m_data->datapemenang();
+                    $this->load->view('admin/pemenang',$x);
+  }
 
   	function proseslogin() {
      
@@ -56,6 +62,11 @@ class Admin extends CI_Controller {
 
 
     }
+    public function hapuspemenang($id) {
+      $this->m_data->hapuspm($id);
+      $this->session->set_flashdata('sukses', 'Anda berhasil menghapus data');
+      redirect('admin/pemenang');
+  }
 
     function logout() {
         $this->session->sess_destroy();

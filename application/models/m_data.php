@@ -11,6 +11,14 @@ class M_data extends CI_Model {
         $hasil = $this->db->query("SELECT * FROM db_user ");
         return $hasil;
     }
+    function datapemenang() {
+        $hasil = $this->db->query("SELECT * FROM db_hasil ");
+        return $hasil;
+    }
+    function hapuspm($id) {
+        $hasil = $this->db->query("DELETE from db_hasil where id='$id'");
+        return $hasil;
+    }
 
     function inputdata($data) {
         $this->db->insert('db_user', $data);
@@ -26,13 +34,13 @@ class M_data extends CI_Model {
         return $hasil;
     }
 
-    function update($id, $nomor, $nama) {
-      $hasil = $this->db->query("UPDATE db_user SET nama='$nama', nomor='$nomor' WHERE id='$id'");
+    function update($id, $nomor, $nama, $unit) {
+      $hasil = $this->db->query("UPDATE db_user SET nama='$nama', nomor='$nomor' , unit='$unit' WHERE id='$id'");
       return $hasil;
   }
   
-  function update2($id, $nomor, $nama) {
-      $hasil = $this->db->query("UPDATE db_user SET nama='$nama', nomor='$nomor' WHERE id='$id'");
+  function update2($id, $nomor, $nama,$unit) {
+      $hasil = $this->db->query("UPDATE db_user SET nama='$nama', nomor='$nomor' , unit='$unit' WHERE id='$id'");
       return $hasil;
   }
 }

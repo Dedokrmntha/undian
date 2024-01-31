@@ -17,11 +17,13 @@ class Input extends CI_Controller {
         $id = $this->input->post('id');
 		$nomor = $this->input->post('nomor');
         $nama = $this->input->post('nama');
+        $unit = $this->input->post('unit');
 
         $data = array(
             'id' => $id,
 			'nomor'=> $nomor,
             'nama' => $nama,
+            'unit'=>$unit,
         );
 
         // Simpan data
@@ -46,8 +48,9 @@ class Input extends CI_Controller {
         $id = $this->input->post('id');
 		$nomor = $this->input->post('nomor');
         $nama = $this->input->post('nama');
-
-        $this->m_data->update($id,$nomor, $nama);
+        $unit = $this->input->post('unit');
+        
+        $this->m_data->update($id,$nomor, $nama, $unit);
 
         $this->session->set_flashdata('sukses', 'Anda berhasil mengupdate data');
         redirect('admin/index');

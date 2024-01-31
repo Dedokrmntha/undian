@@ -12,7 +12,7 @@ if (empty($_SESSION['username'])){
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Virtual Reality 360</title>
+    <title>UNDIAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Hakko Bio Richard">
     <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -64,7 +64,7 @@ $(document).ready( function () {
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a  class="logo">
-                360 VR
+                UNDIAN
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -186,6 +186,12 @@ $_SESSION['start_time'] = time();
                                   <input name="nama" type="text" id="nama" class="form-control" value="<?php echo $i['nama']; ?>" autofocus="on"  />
                               </div>
                           </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">unit</label>
+                              <div class="col-sm-8">
+                                  <input name="unit" type="text" id="unit" class="form-control" value="<?php echo $i['unit']; ?>" autofocus="on"  />
+                              </div>
+                                </div>
                     <?php endforeach;?>       
                         
                           <div class="form-group" style="margin-bottom: 20px;">

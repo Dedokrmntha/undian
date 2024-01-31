@@ -7,7 +7,7 @@ if (empty($_SESSION['username'])){
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Undian</title>
+    <title>UNDIAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- bootstrap 3.0.2 -->
@@ -74,7 +74,7 @@ if (empty($_SESSION['username'])){
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a  class="logo">
-                undian
+                UNDIAN
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -208,9 +208,10 @@ $_SESSION['start_time'] = time();
                <table id="example" border="1" class="table table-hover table-bordered display responsive nowrap" style="width:100%" >
             <thead>
                 <tr>            
-                    
+                     <th>No</th>   
                     <th>Nomor Undian</th>   
-                    <th>Nama</th>    
+                    <th>Nama</th> 
+                    <th>Unit</th>    
                      <th> aksi</th>        
                            
                 
@@ -220,10 +221,14 @@ $_SESSION['start_time'] = time();
 
 
              <tbody>
-               <?php  foreach($data->result_array() as $i): ?>
+               <?php  
+               $no = 1;
+               foreach($data->result_array() as $i): ?>
             <tr>
+            <td><?php echo $no++ ?></td>
              <td> <?php echo $i['nomor']; ?> </td>
              <td><?php echo $i['nama']; ?></td>
+             <td><?php echo $i['unit']; ?></td>
             <td> <a onclick="return confirm ('Yakin hapus <?php echo $i['id'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Data" href="<?php echo site_url().'Input/hapus' ?>/<?php echo $i['id']; ?>"><span class="glyphicon glyphicon-trash"></a>   
                <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Edit Data" href="<?php echo site_url().'Input/edit' ?>/<?php echo $i['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
                        </td>

@@ -9,8 +9,8 @@
                                 </li>
                                 <li class="treeview">
                                  <li>
-                                    <a href="<?php echo site_url().'admin/hadiah' ?>">
-                                        <i class="fa fa-book"></i> <span>Data Hadiah</span>
+                                    <a href="<?php echo site_url().'admin/pemenang' ?>">
+                                        <i class="fa fa-book"></i> <span>Data Pemenang</span>
                                     </a>
                                 </li>
                                 <!-- <li>
