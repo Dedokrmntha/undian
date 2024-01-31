@@ -141,8 +141,8 @@ abstract class CI_Session_driver implements SessionHandlerInterface {
 	{
 		return setcookie(
 			$this->_config['cookie_name'],
-			NULL,
-			1,
+			'',  // Set the value to an empty string
+			time() - 3600,  // Set the expiration time to the past (1 hour ago)
 			$this->_config['cookie_path'],
 			$this->_config['cookie_domain'],
 			$this->_config['cookie_secure'],
