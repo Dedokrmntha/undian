@@ -12,6 +12,7 @@ class M_hasil extends CI_Model
 		return $this->db->get();
 	}
 
+
 	// public function get_hasil_by_id($hasil_id)
 	// {
 	// 	$this->db->select('db_hasil.*, db_user.nama as nama_user');
@@ -37,6 +38,7 @@ class M_hasil extends CI_Model
 	// 	$this->db->where('id', $hasil_id);
 	// 	return $this->db->delete('tb_hasil');
 	// }
+
 }
 
 

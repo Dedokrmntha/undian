@@ -206,39 +206,36 @@ $_SESSION['start_time'] = time();
 
 
                <table id="example" border="1" class="table table-hover table-bordered display responsive nowrap" style="width:100%" >
-            <thead>
-                <tr>            
-                    <th>No</th>
-                    <th>Nomor Undian</th>  
-                    <th>Nama</th> 
-                    <th>Unit</th>    
-                    <th>Keterangan</th> 
-                     <th> aksi</th>        
-                           
-                
-                  
-                </tr>
-            </thead>
+               <thead>
+					<tr>
+                        <th>No</th>
+						<th>Nomor Undian</th>
+						<th>Nama</th>
+						<th>Unit</th>
+						<th>Keterangan Hadiah</th>
+
+					</tr>
+				</thead>
 
 
-             <tbody>
-               <?php 
-                $no = 1; 
-               foreach($data->result_array() as $i): ?>
-            <tr>
-            <td><?php echo $no++ ?></td>
-           <td></td>
-           <td></td>
-           <td></td>
-           <td></td>
-            <td> <a onclick="return confirm ('Yakin hapus <?php echo $i['id'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Data" href="<?php echo site_url().'Admin/hapuspemenang' ?>/<?php echo $i['id']; ?>"><span class="glyphicon glyphicon-trash"></a>   
-               <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Edit Data" href="<?php echo site_url().'' ?>/<?php echo $i['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                       </td>
-            </tr>
- <?php endforeach;?>  
-            </tbody>
-           
-        </table>
+				<tbody>
+					<?php 
+                      $no = 1;
+                    foreach ($hasil->result_array() as $y) : ?>
+						<tr>
+                            <td><?php echo $no++ ?></td>
+							<td> <?php echo $y['nomor']; ?> </td>
+							<td><?php echo $y['nama']; ?></td>
+							<td><?php echo $y['unit']; ?></td>
+							<td><?php echo $y['keterangan']; ?></td>
+                            <!-- <td> <a onclick="return confirm ('Yakin hapus <?php echo $y['id'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Data" href="<?php echo site_url().'Admin/deletepm' ?>/<?php echo $y['id']; ?>"><span class="glyphicon glyphicon-trash"></a>   
+                                <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Edit Data" href="<?php echo site_url().'Admin/edit' ?>/<?php echo $y['id']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
+                       </td> -->
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+
+			</table>
  <div class="text-right" style="margin-top: 10px;">
                  <!-- <a href="input-migrasi.php" class="btn btn-sm btn-primary">Tambah Migrasi <i class="fa fa-arrow-circle-down"></i></a>  -->
                  <!-- <a href="<?php echo site_url().'Input' ?>" class="btn btn-sm btn-primary">Tambah Data <i class="fa fa-arrow-circle-down"></i></a> -->

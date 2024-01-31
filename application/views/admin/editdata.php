@@ -177,7 +177,7 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nomor Undian</label>
                               <div class="col-sm-8">
-                                  <input name="nomor" type="text" id="nomor" class="form-control" value="<?php echo $i['nomor']; ?>"/>
+                                  <input name="nomor" type="text" id="nomor" class="form-control" value="<?php echo $i['nomor']; ?>"readonly/>
                               </div>
                           </div>
                           <div class="form-group">

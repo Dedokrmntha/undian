@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('m_admin');
           $this->load->model('m_data');
+          $this->load->model('M_hasil');
     }
 
 	function index()
@@ -32,8 +33,8 @@ class Admin extends CI_Controller {
   function pemenang()
   {
    
-                    $x['data']=$this->m_data->datapemenang();
-                    $this->load->view('admin/pemenang',$x);
+                    $data['hasil'] = $this->M_hasil->get_all_hasil();
+                    $this->load->view('admin/pemenang', $data);
   }
 
   	function proseslogin() {
@@ -62,12 +63,6 @@ class Admin extends CI_Controller {
 
 
     }
-    public function hapuspemenang($id) {
-      $this->m_data->hapuspm($id);
-      $this->session->set_flashdata('sukses', 'Anda berhasil menghapus data');
-      redirect('admin/pemenang');
-  }
-
     function logout() {
         $this->session->sess_destroy();
         redirect('admin/index');
