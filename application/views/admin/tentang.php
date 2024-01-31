@@ -5,14 +5,10 @@ if (empty($_SESSION['username'])){
   
 ?>
 
-
-
-
-
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Virtual Reality 360</title>
+    <title>Undian</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta name="description" content="Hakko Bio Richard">
     <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
@@ -64,7 +60,7 @@ $(document).ready( function () {
         <!-- header logo: style can be found in header.less -->
         <header class="header">
             <a  class="logo">
-                360 VR
+                Undian
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
