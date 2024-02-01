@@ -18,11 +18,11 @@
                                         <i class="fa fa-lock"></i> <span>Admin</span>
                                     </a>
                                 </li> -->
-                                <li>
+                                <!-- <li>
                                     <a href="<?php echo site_url().'admin/tentang' ?>">
                                         <i class="fa fa-info"></i> <span>Tentang</span>
                                     </a>
-                                </li>
+                                </li> -->
 
 
                             </ul>
