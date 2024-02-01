@@ -164,7 +164,7 @@ $_SESSION['start_time'] = time();
                                 </header>
                                 <!-- <div class="box-header"> -->
                                     <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-<?php  foreach($data->result_array() as $i): ?>
+                                <?php  foreach($data->result_array() as $i): ?>
                                 <!-- </div> -->
                                 <div class="panel-body">
                       <form class="form-horizontal style-form" style="margin-top: 20px;" action="<?php echo site_url().'Input/update' ?>" method="post" enctype="multipart/form-data" name="form1" id="form1">

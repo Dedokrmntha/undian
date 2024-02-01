@@ -4,12 +4,18 @@ if (empty($_SESSION['username'])){
 } else {
   
 ?>
+
+
+
+
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>UNDIAN</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+    <meta name="description" content="Hakko Bio Richard">
+    <meta name="keywords" content="Perpus, Website, Aplikasi, Perpustakaan, Online">
     <!-- bootstrap 3.0.2 -->
     <link href="<?php echo config_item('base_url') ?>/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- font Awesome -->
@@ -30,32 +36,16 @@ if (empty($_SESSION['username'])){
     <link href="<?php echo config_item('base_url') ?>/assets/css/iCheck/all.css" rel="stylesheet" type="text/css" />
     <!-- bootstrap wysihtml5 - text editor -->
     <!-- <link href="css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" /> -->
-    <link href='<?php echo config_item('base_url') ?>/assets/css/font-lato.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- Theme style -->
-
-    <link type="text/css" href='<?php echo config_item('base_url') ?>/assets/css/jquery.dataTables.min.css' rel='stylesheet'>
-    <link type="text/css" href='<?php echo config_item('base_url') ?>/assets/css/responsive.dataTables.min.css' rel='stylesheet'>
-    <link type="text/css" href='<?php echo config_item('base_url') ?>/assets/css/buttons.dataTables.min.css' rel='stylesheet'>
-
     <link href="<?php echo config_item('base_url') ?>/assets/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<?php echo config_item('base_url') ?>/assets/datatable/css/jquery.dataTables.min.css">
 <script type="text/javascript" charset="utf8" src="<?php echo config_item('base_url') ?>/assets/datatable/js/jquery.js"></script>
 <script type="text/javascript" charset="utf8" src="<?php echo config_item('base_url') ?>/assets/datatable/js/jquery.dataTables.min.js"></script>
-
-<script src="<?php echo config_item('base_url') ?>/assets/js/jquery-1.12.4.js"></script>
-<script src="<?php echo config_item('base_url') ?>/assets/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo config_item('base_url') ?>/assets/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo config_item('base_url') ?>/assets/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo config_item('base_url') ?>/assets/js/buttons.colVis.min.js"></script>
-<script>
-   $(document).ready(function() {
-      $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-        'colvis'
-        ]
-    } );
-  } );
+<script type="text/javascript">
+$(document).ready( function () {
+    $('#ngoding').DataTable();
+} );
 </script>
 
 
@@ -101,7 +91,7 @@ if (empty($_SESSION['username'])){
                                
 
                                         <li>
-                                            <a href="<?php echo base_url().'Admin/logout' ?>"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                            <a href="<?php echo site_url().'Login/logout' ?>"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -111,7 +101,7 @@ if (empty($_SESSION['username'])){
                 </header>
                 <?php
 $timeout = 10; // Set timeout minutes
-$logout_redirect_url = "<?php echo base_url().'Vr' ?>"; // Set logout URL
+$logout_redirect_url = "<?php echo site_url().'Vr' ?>"; // Set logout URL
 
 $timeout = $timeout * 60; // Converts minutes to seconds
 if (isset($_SESSION['start_time'])) {
@@ -163,88 +153,68 @@ $_SESSION['start_time'] = time();
 
                     <aside class="right-side">
 
-                <!-- Main content -->
-                <section class="content">
-                   
-
-<!-- Main content -->
-                <section class="content">
+              <section class="content">
 
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="panel">
                                 <header class="panel-heading">
-                                    <b>Data Pemenang</b>
+                                    <b>Edit Data Pemenang</b>
 
                                 </header>
                                 <!-- <div class="box-header"> -->
                                     <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-
+                                <?php  foreach($data->result_array() as $i): ?>
                                 <!-- </div> -->
-                                <div class="panel-body table-responsive">
- <script type="application/javascript">  
-     /** After windod Load */  
-     $(window).bind("load", function() {  
-       window.setTimeout(function() {  
-         $(".alert").fadeTo(500, 0).slideUp(500, function() {  
-           $(this).remove();  
-         });  
-       }, 500);  
-     });  
-   </script>   
-<?php if($this->session->flashdata('sukses')){ ?>  
-     <div class="alert alert-success">  
-       <a href="#" class="close" data-dismiss="alert">&times;</a>  
-       <strong>Success!</strong> <?php echo $this->session->flashdata('sukses'); ?>  
-     </div>  
-   <?php } else if($this->session->flashdata('error')){ ?>  
-     <div class="alert alert-danger">  
-       <a href="#" class="close" data-dismiss="alert">&times;</a>  
-       <strong>Error!</strong> <?php echo $this->session->flashdata('error'); ?>  
-     </div>  
-   <?php } ?>  
-
-
-               <table id="example" border="1" class="table table-hover table-bordered display responsive nowrap" style="width:100%" >
-               <thead>
-					<tr>
-                        <th>No</th>
-						<th>Nomor Undian</th>
-						<th>Nama</th>
-						<th>Unit</th>
-						<th>Keterangan Hadiah</th>
-
-					</tr>
-				</thead>
-
-
-				<tbody>
-					<?php 
-                      $no = 1;
-                    foreach ($hasil->result_array() as $y) : ?>
-						<tr>
-                            <td><?php echo $no++ ?></td>
-							<td> <?php echo $y['nomor']; ?> </td>
-							<td><?php echo $y['nama']; ?></td>
-							<td><?php echo $y['unit']; ?></td>
-							<td><?php echo $y['keterangan']; ?></td>
-                            <td> <a onclick="return confirm ('Yakin hapus <?php echo $y['id_user'];?>.?');" class="btn btn-sm btn-danger tooltips" data-placement="bottom" data-toggle="tooltip" title="Hapus Data" href="<?php echo site_url().'Admin/delete' ?>/<?php echo $y['id_user']; ?>"><span class="glyphicon glyphicon-trash"></a>   
-                                <a class="btn btn-sm btn-success" data-placement="bottom" data-toggle="tooltip" title="Edit Data" href="<?php echo site_url().'Admin/editpm' ?>/<?php echo $y['id_user']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
-                       </td> 
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-
-			</table>
- <div class="text-right" style="margin-top: 10px;">
-                 <!-- <a href="input-migrasi.php" class="btn btn-sm btn-primary">Tambah Migrasi <i class="fa fa-arrow-circle-down"></i></a>  -->
-                 <!-- <a href="<?php echo site_url().'Input' ?>" class="btn btn-sm btn-primary">Tambah Data <i class="fa fa-arrow-circle-down"></i></a> -->
-                </div>
-                   </div><!-- /.box-body -->
+                                <div class="panel-body">
+                      <form class="form-horizontal style-form" style="margin-top: 20px;" action="<?php echo site_url().'Admin/updatepm' ?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
+                                <!-- <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">id</label>
+                              <div class="col-sm-8">
+                                  <input name="id_user" type="text" id="id_user" class="form-control" value="<?php echo $i['id_user']; ?>" readonly/>
+                              </div>
+                            </div> -->
+                          <!-- <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Nomor Undian</label>
+                              <div class="col-sm-8">
+                                  <input name="nomor" type="text" id="nomor" class="form-control" value="<?php echo $i['nomor']; ?>"readonly/>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">nama</label>
+                              <div class="col-sm-8">
+                                  <input name="nama" type="text" id="nama" class="form-control" value="<?php echo $i['nama']; ?>" autofocus="on"  />
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">unit</label>
+                              <div class="col-sm-8">
+                                  <input name="unit" type="text" id="unit" class="form-control" value="<?php echo $i['unit']; ?>" autofocus="on"  />
+                              </div>
+                                </div> -->
+                                <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Keterangan</label>
+                              <div class="col-sm-8">
+                                  <input name="keterangan" type="text" id="keterangan" class="form-control" value="<?php echo $i['keterangan']; ?>" autofocus="on"  />
+                              </div>
+                                </div>
+                    <?php endforeach;?>       
+                        
+                          <div class="form-group" style="margin-bottom: 20px;">
+                              <label class="col-sm-2 col-sm-2 control-label"></label>
+                              <div class="col-sm-8">
+                                  <input type="submit" value="Simpan" class="btn btn-sm btn-primary" />&nbsp;
+                                  
+                              </div>
+                          </div>
+                          <div style="margin-top: 20px;"></div>
+                      </form>
+                                </div>
                             </div><!-- /.box -->
                         </div>
                     </div>
               <!-- row end -->
+                </section><!-- /.content -->
                 </section><!-- /.content -->
 
                 </section><!-- /.content -->
@@ -280,9 +250,6 @@ $_SESSION['start_time'] = time();
 
         <!-- Director dashboard demo (This is only for demo purposes) -->
         <script src="<?php echo config_item('base_url') ?>/assets/js/Director/dashboard.js" type="text/javascript"></script>
-
-
-
 
    
 </body>

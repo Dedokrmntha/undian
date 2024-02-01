@@ -11,8 +11,21 @@ class M_hasil extends CI_Model
 		$this->db->order_by('db_hasil.id', 'desc');
 		return $this->db->get();
 	}
+	function hapus($id_user) {
+		$hasil = $this->db->query("DELETE from db_hasil where id_user='$id_user'");
+        return $hasil;
 
+    }
 
+ function edit($id_user) {
+        $hasil = $this->db->query("SELECT * from db_hasil where id_user='$id_user'");
+        return $hasil;
+    }
+
+    function update($id_user, $keterangan) {
+      $hasil = $this->db->query("UPDATE db_hasil SET keterangan='$keterangan' WHERE id_user='$id_user'");
+      return $hasil;
+  }
 	// public function get_hasil_by_id($hasil_id)
 	// {
 	// 	$this->db->select('db_hasil.*, db_user.nama as nama_user');

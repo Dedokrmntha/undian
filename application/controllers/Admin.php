@@ -71,5 +71,26 @@ class Admin extends CI_Controller {
     function data_vr() {
       $this->load->view('admin/data-vr');
     }
+    public function delete($id_user)
+    {
+        $this->M_hasil->hapus($id_user);
+        redirect('Admin/pemenang'); 
+    }
+    public function editpm($id_user) {
+      $x['data'] = $this->M_hasil->edit($id_user);
+      $this->load->view('admin/editpemenang', $x);
+  }
 
+  public function updatepm() {
+      $id_user = $this->input->post('id_user');
+      // $nomor = $this->input->post('nomor');
+      // $nama = $this->input->post('nama');
+      // $unit = $this->input->post('unit');
+      $keterangan = $this->input->post('keterangan');
+
+      $this->M_hasil->update($id_user, $keterangan);
+
+      $this->session->set_flashdata('sukses', 'Anda berhasil mengupdate data');
+      redirect('admin/pemenang');
+  }
 }   
