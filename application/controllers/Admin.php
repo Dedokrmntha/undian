@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('m_admin');
           $this->load->model('m_data');
+          $this->load->model('M_hasil');
     }
 
 	function index()
@@ -32,8 +33,8 @@ class Admin extends CI_Controller {
   function pemenang()
   {
    
-                    $x['data']=$this->m_data->datapemenang();
-                    $this->load->view('admin/pemenang',$x);
+                    $data['hasil'] = $this->M_hasil->get_all_hasil();
+                    $this->load->view('admin/pemenang', $data);
   }
 
   	function proseslogin() {
@@ -62,12 +63,6 @@ class Admin extends CI_Controller {
 
 
     }
-    public function hapuspemenang($id) {
-      $this->m_data->hapuspm($id);
-      $this->session->set_flashdata('sukses', 'Anda berhasil menghapus data');
-      redirect('admin/pemenang');
-  }
-
     function logout() {
         $this->session->sess_destroy();
         redirect('admin/index');
@@ -76,5 +71,26 @@ class Admin extends CI_Controller {
     function data_vr() {
       $this->load->view('admin/data-vr');
     }
+    public function delete($id_user)
+    {
+        $this->M_hasil->hapus($id_user);
+        redirect('Admin/pemenang'); 
+    }
+    public function editpm($id_user) {
+      $x['data'] = $this->M_hasil->edit($id_user);
+      $this->load->view('admin/editpemenang', $x);
+  }
 
+  public function updatepm() {
+      $id_user = $this->input->post('id_user');
+      // $nomor = $this->input->post('nomor');
+      // $nama = $this->input->post('nama');
+      // $unit = $this->input->post('unit');
+      $keterangan = $this->input->post('keterangan');
+
+      $this->M_hasil->update($id_user, $keterangan);
+
+      $this->session->set_flashdata('sukses', 'Anda berhasil mengupdate data');
+      redirect('admin/pemenang');
+  }
 }   

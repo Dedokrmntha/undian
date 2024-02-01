@@ -49,7 +49,7 @@ class Input extends CI_Controller {
 		$nomor = $this->input->post('nomor');
         $nama = $this->input->post('nama');
         $unit = $this->input->post('unit');
-        
+
         $this->m_data->update($id,$nomor, $nama, $unit);
 
         $this->session->set_flashdata('sukses', 'Anda berhasil mengupdate data');
@@ -66,33 +66,33 @@ class Input extends CI_Controller {
         $this->load->view('stop', $x);
     }
 
-	public function input_hadiah() {
-		$id = $this->input->post('id');
-		$nomor = $this->input->post('nomor');
-		$nama = $this->input->post('nama');
+	// public function input_hadiah() {
+	// 	$id = $this->input->post('id');
+	// 	$nomor = $this->input->post('nomor');
+	// 	$nama = $this->input->post('nama');
 	
 	
-		// Mengambil data dari tabel di database lain
-		$other_data = $other_db->get('db_user')->row();
+	// 	// Mengambil data dari tabel di database lain
+	// 	$other_data = $other_db->get('db_user')->row();
 	
-		// Menambahkan keterangan pada data
-		$keterangan = 'Data ini berasal dari tabel lain.';
+	// 	// Menambahkan keterangan pada data
+	// 	$keterangan = 'Data ini berasal dari tabel lain.';
 	
-		// Menggabungkan data dari kedua database beserta keterangan
-		$data = array(
-			'id' => $id,
-			'nomor' => $nomor,
-			'nama' => $nama,
-			'keterangan' => $keterangan,
+	// 	// Menggabungkan data dari kedua database beserta keterangan
+	// 	$data = array(
+	// 		'id' => $id,
+	// 		'nomor' => $nomor,
+	// 		'nama' => $nama,
+	// 		'keterangan' => $keterangan,
 			
-		);
+	// 	);
 	
-		// Menyimpan data ke tabel di database default
-		$this->db->insert('db_hasil', $data);
+	// 	// Menyimpan data ke tabel di database default
+	// 	$this->db->insert('db_hasil', $data);
 	
-		$this->session->set_flashdata('sukses', 'Anda berhasil menginput data');
-		redirect('admin/index');
-	}
+	// 	$this->session->set_flashdata('sukses', 'Anda berhasil menginput data');
+	// 	redirect('admin/index');
+	// }
 	
 	
 }

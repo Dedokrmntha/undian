@@ -164,7 +164,7 @@ $_SESSION['start_time'] = time();
                                 </header>
                                 <!-- <div class="box-header"> -->
                                     <!-- <h3 class="box-title">Responsive Hover Table</h3> -->
-<?php  foreach($data->result_array() as $i): ?>
+                                <?php  foreach($data->result_array() as $i): ?>
                                 <!-- </div> -->
                                 <div class="panel-body">
                       <form class="form-horizontal style-form" style="margin-top: 20px;" action="<?php echo site_url().'Input/update' ?>" method="post" enctype="multipart/form-data" name="form1" id="form1">
@@ -177,7 +177,7 @@ $_SESSION['start_time'] = time();
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nomor Undian</label>
                               <div class="col-sm-8">
-                                  <input name="nomor" type="text" id="nomor" class="form-control" value="<?php echo $i['nomor']; ?>"/>
+                                  <input name="nomor" type="text" id="nomor" class="form-control" value="<?php echo $i['nomor']; ?>"readonly/>
                               </div>
                           </div>
                           <div class="form-group">
