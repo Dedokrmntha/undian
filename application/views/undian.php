@@ -61,33 +61,33 @@
 			<center>
 				<h1 style="font-size: 20px; font-weight: bold; font-family: 'Sofia', sans-serif;">*PEMENANG UNDIAN*</h1>
 			</center>
-			<table align="center" id="example" border="5" class="table table-info table-bordered display responsive nowrap" style="width:50%">
 
-				<thead>
-					<tr>
-
-						<th>Nomor Undian</th>
-						<th>Nama</th>
-						<th>Unit</th>
-						<th>Keterangan Hadiah</th>
-
-					</tr>
-				</thead>
-
-
-				<tbody>
-					<?php foreach ($hasil->result_array() as $i) : ?>
+			<?php if ($hasil->num_rows() > 0) : ?>
+				<table align="center" id="example" border="5" class="table table-info table-bordered display responsive nowrap" style="width:50%">
+					<thead>
 						<tr>
-							<td> <?php echo $i['nomor']; ?> </td>
-							<td><?php echo $i['nama']; ?></td>
-							<td><?php echo $i['unit']; ?></td>
-							<td><?php echo $i['keterangan']; ?></td>
-
+							<th>Nomor Undian</th>
+							<th>Nama</th>
+							<th>Unit</th>
+							<th>Keterangan Hadiah</th>
 						</tr>
-					<?php endforeach; ?>
-				</tbody>
+					</thead>
 
-			</table>
+					<tbody>
+						<?php foreach ($hasil->result_array() as $i) : ?>
+							<tr>
+								<td><?php echo $i['nomor']; ?></td>
+								<td><?php echo $i['nama']; ?></td>
+								<td><?php echo $i['unit']; ?></td>
+								<td><?php echo $i['keterangan']; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			<?php else : ?>
+				<h4>Pemenang Undian Belum Ditentukan</h4>
+			<?php endif; ?>
+
 
 
 
