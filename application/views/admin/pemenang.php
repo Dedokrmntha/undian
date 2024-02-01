@@ -131,10 +131,13 @@ $_SESSION['start_time'] = time();
                         <section class="sidebar">
                             <!-- Sidebar user panel -->
                             <div class="user-panel">
-                                <div>
-                                    <center><img src="<?php echo config_item('base_url') ?>/assets/gambar/<?php echo $_SESSION['gambar']; ?>" height="80" width="80" class="img-circle" alt="User Image" style="border: 3px solid white;" /></center>
+                            <div>
+                                    <center><img src="<?php echo config_item('base_url') ?>/assets/gambar/angkasa.jpg<?php echo $_SESSION['gambar']; ?>" height="45" width="100"  /></center>
                                 </div>
-                                <div class="info">
+                                
+                            </div>
+                            <div class="user-panel">
+                            <div class="info" >
                                     <center><p><?php echo $_SESSION['fullname']; ?></p></center>
 
                                 </div>
